@@ -4,3 +4,22 @@ rebase one FEATURE branch on MASTER:
   git pull --rebase origin MASTER
   git checkout FEATURE
   git rebase MASTER
+  git push --force-with-lease origin FEATURE
+
+merge FEATURE into MASTER:
+  rebase one FEATURE branch on MASTER
+  git checkout MASTER
+  git merge [--ff|--no-ff] FEATURE
+  git push origin MASTER
+
+merge parameters:
+  --ff:
+    - no merge commit is created
+    - for small feature branches (few commits and/or few files)
+    - cause it gets chaotic else
+  --no-ff:
+    - a merge commit is created
+    - for larger things (many commits, lots of files)
+    - if we want to be able to revert it easily
+
+remove all unstaged changes: git clean -df
