@@ -1,0 +1,6 @@
+rebase one FEATURE branch on MASTER:
+  git fetch origin
+  git checkout MASTER
+  git pull --rebase origin MASTER
+  git checkout FEATURE
+  git rebase MASTER
